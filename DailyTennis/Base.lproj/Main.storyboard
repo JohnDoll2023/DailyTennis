@@ -48,6 +48,7 @@
                                         </label>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="W1Y-CP-PgO" secondAttribute="trailing" constant="10" id="7jb-o8-dmB"/>
                                         <constraint firstItem="qwQ-jY-hNa" firstAttribute="top" secondItem="LkZ-Bt-nIL" secondAttribute="top" constant="10" id="MUb-jb-XK6"/>
                                         <constraint firstAttribute="trailing" secondItem="qwQ-jY-hNa" secondAttribute="trailing" constant="10" id="XCA-oh-3dA"/>
                                         <constraint firstAttribute="bottom" secondItem="W1Y-CP-PgO" secondAttribute="bottom" constant="20" id="efQ-ec-Qxs"/>

@@ -71,6 +71,8 @@ class DetailViewController: UIViewController {
 //        try await Task.sleep(nanoseconds: 1_000_000_000)
         // make it so that when the video ends, it takes just a second to go back to main screen
         usleep(750_000)
+        
+        // causes known bug to lose "Daily Tennis" title from top
         _ = navigationController?.popViewController(animated: true)
 
     }
