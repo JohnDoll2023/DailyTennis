@@ -8,24 +8,24 @@
 import UIKit
 import AVKit
 
-class ViewController: UICollectionViewController {
+class VideoViewController: UICollectionViewController {
     
 //    let videoURL = "https://dailytennis.s3.us-east-2.amazonaws.com/1-21-18.mov"
     // all daily tennis videos
     var videos: [String] = [
         "6-17-17.mp4",
         "6-18-17.mp4",
-        "6-25-17.mp4",
-        "6-29-17.mp4",
-        "9-15-17.mp4",
-        "7-28-17.mp4",
-        "7-30-17.mp4",
-        "8-1-17.mp4",
-        "8-2-17.mp4",
-        "9-15-17.mp4",
-        "1-21-18.mov",
-        "mechanicssuck.MOV",
-        "shoppingcart.mov"
+//        "6-25-17.mp4",
+//        "6-29-17.mp4",
+//        "9-15-17.mp4",
+//        "7-28-17.mp4",
+//        "7-30-17.mp4",
+//        "8-1-17.mp4",
+//        "8-2-17.mp4",
+//        "9-15-17.mp4",
+//        "1-21-18.mov",
+//        "mechanicssuck.MOV",
+//        "shoppingcart.mov"
     ]
     
     // holds the thumbnails for the videos
@@ -63,12 +63,14 @@ class ViewController: UICollectionViewController {
 //        }
         
         // loads thumbnails
-        for video in videos {
-            let url = URL(string: "https://dailytennis.s3.us-east-2.amazonaws.com/\(video)")
-//            print("here")
-            thumbnails.append(generateThumbnail(path: url!)!)
-//            print("here2")
-        }
+//        DispatchQueue.global().async {
+            for video in self.videos {
+                let url = URL(string: "https://dailytennis.s3.us-east-2.amazonaws.com/\(video)")
+    //            print("here")
+                self.thumbnails.append(self.generateThumbnail(path: url!)!)
+    //            print("here2")
+            }
+//        }
 //        let url = URL(string: videoURL)
 //        thumbnails.append(generateThumbnail(path: url!)!)
         

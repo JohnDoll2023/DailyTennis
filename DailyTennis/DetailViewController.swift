@@ -80,6 +80,8 @@ class DetailViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.hidesBarsOnTap = true
+//        tabBarController?.hidesBottomBarWhenPushed = true
+        tabBarController?.tabBar.isHidden = true
 //        navigationItem.setHidesBackButton(true, animated: true)
 //        navigationController?
         
@@ -88,6 +90,8 @@ class DetailViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.hidesBarsOnTap = false
+//        tabBarController?.hidesBottomBarWhenPushed = true
+        tabBarController?.tabBar.isHidden = false
     }
     
 
