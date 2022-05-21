@@ -62,6 +62,14 @@ class HomeViewController: UICollectionViewController {
             }
             cell.layer.borderColor = UIColor(white: 0, alpha: 0.3).cgColor
             cell.layer.borderWidth = 2
+            cell.layer.borderColor = UIColor(white: 0, alpha: 0.3).cgColor
+    //        cell.layer.borderWidth = 2
+            cell.imageView.layer.masksToBounds = true
+            cell.imageView.layer.borderColor = UIColor(white: 0, alpha: 0.3).cgColor
+    //        cell.imageView.layer.borderWidth = 2
+            cell.imageView.layer.cornerRadius = 20
+//            cell.imageView.image
+//            cell.imageView.layer
             
             // Configure the cell
         
@@ -73,6 +81,10 @@ class HomeViewController: UICollectionViewController {
             }
             cell.layer.borderColor = UIColor(white: 0, alpha: 0.3).cgColor
             cell.layer.borderWidth = 2
+            cell.imageView.layer.masksToBounds = true
+            cell.imageView.layer.borderColor = UIColor(white: 0, alpha: 0.3).cgColor
+    //        cell.imageView.layer.borderWidth = 2
+            cell.imageView.layer.cornerRadius = 20
             
             return cell
         } else if (indexPath.item == 2) {
@@ -134,12 +146,12 @@ class HomeViewController: UICollectionViewController {
         if (indexPath.item == 0) {
             let vc = AboutViewController()
             navigationController?.pushViewController(vc, animated: true)
-//        } else if (indexPath.item == 1) {
-//            let vc = HistoryViewController()
-//            navigationController?.pushViewController(vc, animated: true)
-//        } else if (indexPath.item == 2) {
-//            let vc = FeaturedViewController()
-//            navigationController?.pushViewController(vc, animated: true)
+        } else if (indexPath.item == 1) {
+            let vc = HistoryViewController()
+            navigationController?.pushViewController(vc, animated: true)
+        } else if (indexPath.item == 2) {
+            let vc = FeaturedViewController()
+            navigationController?.pushViewController(vc, animated: true)
         } else {
             let vc = FavoritesViewController()
             navigationController?.pushViewController(vc, animated: true)
