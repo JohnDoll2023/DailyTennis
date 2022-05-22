@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E41097CA283A09F600286F30 /* FavoritesVideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41097C9283A09F600286F30 /* FavoritesVideoCell.swift */; };
 		E4506FCC283839C300833D06 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4506FCB283839C300833D06 /* AppDelegate.swift */; };
 		E4506FCE283839C300833D06 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4506FCD283839C300833D06 /* SceneDelegate.swift */; };
 		E4506FD0283839C300833D06 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4506FCF283839C300833D06 /* VideoViewController.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E41097C9283A09F600286F30 /* FavoritesVideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesVideoCell.swift; sourceTree = "<group>"; };
 		E4506FC8283839C300833D06 /* DailyTennis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyTennis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4506FCB283839C300833D06 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E4506FCD283839C300833D06 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 				E4EEA0AE28399A52009C4B47 /* FeaturedViewController.swift */,
 				E4EEA0B228399AD6009C4B47 /* FavoritesCell.swift */,
 				E4EEA0B428399AE6009C4B47 /* FavoritesViewController.swift */,
+				E41097C9283A09F600286F30 /* FavoritesVideoCell.swift */,
 			);
 			path = "Home tab";
 			sourceTree = "<group>";
@@ -190,6 +193,7 @@
 				E4506FE028383AA000833D06 /* DTVideoCell.swift in Sources */,
 				E4EEA0A528398650009C4B47 /* HomeViewController.swift in Sources */,
 				E4EEA0B128399A70009C4B47 /* FeaturedCell.swift in Sources */,
+				E41097CA283A09F600286F30 /* FavoritesVideoCell.swift in Sources */,
 				E4EEA0A9283988E1009C4B47 /* AboutViewController.swift in Sources */,
 				E4EEA0A728398877009C4B47 /* AboutCell.swift in Sources */,
 				E4EEA0B328399AD6009C4B47 /* FavoritesCell.swift in Sources */,

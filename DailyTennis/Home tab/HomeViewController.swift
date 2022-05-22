@@ -8,6 +8,12 @@
 import UIKit
 
 class HomeViewController: UICollectionViewController {
+    
+    var vvc = VideoViewController()
+    lazy var featured: String = vvc.videos.randomElement()!
+    let fvc = FavoritesViewController()
+    lazy var favorite: String = fvc.favorites[0]
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -15,7 +21,7 @@ class HomeViewController: UICollectionViewController {
 
     // sets number of tabs on home screen
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return 3
     }
 
     // sets each individual set
@@ -44,12 +50,9 @@ class HomeViewController: UICollectionViewController {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Featured", for: indexPath as IndexPath) as? FeaturedCell else {
                 fatalError("Unable to dequeue FeaturedCell.")
             }
-            cell.layer.borderColor = UIColor(white: 0, alpha: 0.3).cgColor
-            cell.layer.borderWidth = 2
             cell.imageView.layer.borderColor = UIColor(white: 0, alpha: 0.3).cgColor
             cell.imageView.layer.cornerRadius = 20
-            let x = VideoViewController()
-            cell.imageView.image = x.generateThumbnail(path: URL(string: "https://dailytennis.s3.us-east-2.amazonaws.com/1-21-18.mov")!)
+            cell.imageView.image = vvc.generateThumbnail(path: URL(string: "https://dailytennis.s3.us-east-2.amazonaws.com/\(featured)")!)
             return cell
             
             // favorites cell in lower right (might be bottom mid in future)
@@ -59,6 +62,7 @@ class HomeViewController: UICollectionViewController {
             }
             cell.imageView.layer.borderColor = UIColor(white: 0, alpha: 0.3).cgColor
             cell.imageView.layer.cornerRadius = 20
+            cell.imageView.image = vvc.generateThumbnail(path: URL(string: "https://dailytennis.s3.us-east-2.amazonaws.com/\(favorite)")!)
             cell.layer.borderColor = UIColor(white: 0, alpha: 0.3).cgColor
             cell.layer.borderWidth = 2
             return cell
@@ -67,20 +71,23 @@ class HomeViewController: UICollectionViewController {
     
     // determines which view controller to return based on view tapped
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let vc: UIViewController
         switch (indexPath.item) {
             case 0:
-                vc = AboutViewController()
-                break
+                let vc = AboutViewController()
+                navigationController?.pushViewController(vc, animated: true)
             case 1:
-                vc = HistoryViewController()
-                break
+                let vc = HistoryViewController()
+                navigationController?.pushViewController(vc, animated: true)
             case 2:
-                vc = FeaturedViewController()
-                break
+                let vc = DetailViewController()
+                vc.selectedVideo = URL(string: "https://dailytennis.s3.us-east-2.amazonaws.com/\(featured)")
+                navigationController?.pushViewController(vc, animated: true)
             default:
-                vc = FavoritesViewController()
+                if let vc = storyboard?.instantiateViewController(withIdentifier: "Favorites") as? FavoritesViewController {
+                    print("here12")
+                    navigationController?.pushViewController(vc, animated: true)
+                }
         }
-        navigationController?.pushViewController(vc, animated: true)
+        
     }
 }

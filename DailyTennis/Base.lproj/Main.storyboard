@@ -27,14 +27,14 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DTVideo" id="6yZ-eZ-b8q" customClass="DTVideoCell" customModule="DailyTennis" customModuleProvider="target">
-                                <rect key="frame" x="19.5" y="0.0" width="375" height="746"/>
+                                <rect key="frame" x="19.5" y="0.0" width="375" height="720"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" insetsLayoutMarginsFromSafeArea="NO" id="LkZ-Bt-nIL">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="746"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="720"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="January 5, 2019" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W1Y-CP-PgO">
-                                            <rect key="frame" x="107.5" y="699" width="145.5" height="27"/>
+                                            <rect key="frame" x="107.5" y="661.5" width="145.5" height="27"/>
                                             <fontDescription key="fontDescription" name="NotoSansKannada-Regular" family="Noto Sans Kannada" pointSize="20"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -48,15 +48,16 @@
                                         </imageView>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="W1Y-CP-PgO" firstAttribute="top" secondItem="qwQ-jY-hNa" secondAttribute="bottom" constant="20" id="IHK-24-gqH"/>
                                         <constraint firstItem="qwQ-jY-hNa" firstAttribute="top" secondItem="LkZ-Bt-nIL" secondAttribute="top" constant="10" id="MUb-jb-XK6"/>
                                         <constraint firstItem="W1Y-CP-PgO" firstAttribute="leading" secondItem="LkZ-Bt-nIL" secondAttribute="leading" constant="107.5" id="Te2-cI-UQD"/>
                                         <constraint firstAttribute="trailing" secondItem="qwQ-jY-hNa" secondAttribute="trailing" constant="10" id="XCA-oh-3dA"/>
-                                        <constraint firstAttribute="bottom" secondItem="W1Y-CP-PgO" secondAttribute="bottom" constant="20" id="efQ-ec-Qxs"/>
+                                        <constraint firstAttribute="bottom" secondItem="W1Y-CP-PgO" secondAttribute="bottom" constant="31.5" id="fbF-bi-5fn"/>
                                         <constraint firstItem="qwQ-jY-hNa" firstAttribute="leading" secondItem="LkZ-Bt-nIL" secondAttribute="leading" constant="10" id="haw-8r-gyv"/>
                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="W1Y-CP-PgO" secondAttribute="trailing" constant="10" id="kbj-yg-9mS"/>
                                     </constraints>
                                 </collectionViewCellContentView>
-                                <size key="customSize" width="375" height="746"/>
+                                <size key="customSize" width="375" height="720"/>
                                 <connections>
                                     <outlet property="imageView" destination="qwQ-jY-hNa" id="myZ-jz-kt4"/>
                                     <outlet property="name" destination="W1Y-CP-PgO" id="pxq-Gx-NyX"/>
@@ -152,9 +153,9 @@
                                         <constraint firstItem="Hj3-35-fxG" firstAttribute="top" secondItem="OoT-IH-vz1" secondAttribute="bottom" constant="7" id="1Od-Bb-ewC"/>
                                         <constraint firstAttribute="bottom" secondItem="Hj3-35-fxG" secondAttribute="bottom" constant="23" id="2jt-dd-Mp4"/>
                                         <constraint firstItem="OoT-IH-vz1" firstAttribute="top" secondItem="LLs-6L-ZIp" secondAttribute="top" constant="10" id="3lF-LF-cdj"/>
-                                        <constraint firstAttribute="trailing" secondItem="Hj3-35-fxG" secondAttribute="trailing" constant="61" id="V4N-ps-J8T"/>
+                                        <constraint firstItem="Hj3-35-fxG" firstAttribute="leading" secondItem="LLs-6L-ZIp" secondAttribute="leading" constant="60" id="K5f-ir-u9T"/>
                                         <constraint firstAttribute="trailing" secondItem="OoT-IH-vz1" secondAttribute="trailing" constant="10" id="bo6-Jo-slx"/>
-                                        <constraint firstItem="Hj3-35-fxG" firstAttribute="leading" secondItem="LLs-6L-ZIp" secondAttribute="leading" constant="60" id="gyt-SC-j8n"/>
+                                        <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="Hj3-35-fxG" secondAttribute="trailing" constant="61" id="wAu-VB-VBu"/>
                                     </constraints>
                                 </collectionViewCellContentView>
                                 <size key="customSize" width="190" height="250"/>
@@ -164,44 +165,44 @@
                                 </connections>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Featured" id="2yU-9L-T6g" customClass="FeaturedCell" customModule="DailyTennis" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="260" width="190" height="250"/>
+                                <rect key="frame" x="19.5" y="260" width="375" height="720"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="kai-lj-RHR">
-                                    <rect key="frame" x="0.0" y="0.0" width="190" height="250"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="720"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pencil.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="p90-7Q-wPl">
-                                            <rect key="frame" x="13" y="10.5" width="164" height="128"/>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="p90-7Q-wPl">
+                                            <rect key="frame" x="13" y="10" width="349" height="621"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="164" id="ICh-e3-akp"/>
-                                                <constraint firstAttribute="height" constant="129" id="PEE-Iv-dJp"/>
+                                                <constraint firstAttribute="width" constant="355" id="ICh-e3-akp"/>
+                                                <constraint firstAttribute="width" secondItem="p90-7Q-wPl" secondAttribute="height" multiplier="480:854" id="vmQ-xv-rjP"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Featured" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ed-d8-di5">
-                                            <rect key="frame" x="61" y="221.5" width="68" height="18.5"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Featured" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ed-d8-di5">
+                                            <rect key="frame" x="136.5" y="638" width="101" height="30"/>
+                                            <fontDescription key="fontDescription" name="KohinoorGujarati-Bold" family="Kohinoor Gujarati" pointSize="20"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="4Ed-d8-di5" secondAttribute="trailing" constant="61" id="5hi-0f-POp"/>
-                                        <constraint firstItem="4Ed-d8-di5" firstAttribute="top" secondItem="p90-7Q-wPl" secondAttribute="bottom" constant="82.5" id="MT2-KD-6xy"/>
-                                        <constraint firstAttribute="bottom" secondItem="4Ed-d8-di5" secondAttribute="bottom" constant="10" id="MqG-FI-CEO"/>
+                                        <constraint firstItem="4Ed-d8-di5" firstAttribute="leading" secondItem="kai-lj-RHR" secondAttribute="leading" constant="136.5" id="AaA-cJ-MRE"/>
                                         <constraint firstItem="p90-7Q-wPl" firstAttribute="top" secondItem="kai-lj-RHR" secondAttribute="top" constant="10" id="Ox4-6i-oLH"/>
-                                        <constraint firstItem="4Ed-d8-di5" firstAttribute="leading" secondItem="kai-lj-RHR" secondAttribute="leading" constant="61" id="TBT-pM-NaQ"/>
+                                        <constraint firstItem="4Ed-d8-di5" firstAttribute="top" secondItem="p90-7Q-wPl" secondAttribute="bottom" constant="7" id="Y8D-Ka-4fj"/>
                                         <constraint firstItem="p90-7Q-wPl" firstAttribute="leading" secondItem="kai-lj-RHR" secondAttribute="leading" constant="13" id="dJw-M9-HR9"/>
+                                        <constraint firstAttribute="bottom" secondItem="4Ed-d8-di5" secondAttribute="bottom" constant="52" id="h5f-Fo-zWs"/>
+                                        <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="4Ed-d8-di5" secondAttribute="trailing" constant="137.5" id="jev-PA-arZ"/>
                                         <constraint firstAttribute="trailing" secondItem="p90-7Q-wPl" secondAttribute="trailing" constant="13" id="uhW-hl-xtz"/>
                                     </constraints>
                                 </collectionViewCellContentView>
-                                <size key="customSize" width="190" height="250"/>
+                                <size key="customSize" width="375" height="720"/>
                                 <connections>
                                     <outlet property="imageView" destination="p90-7Q-wPl" id="8cH-n4-OfY"/>
                                     <outlet property="name" destination="4Ed-d8-di5" id="qji-Pq-DJE"/>
                                 </connections>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Favorites" id="7R7-iZ-e7P" customClass="FavoritesCell" customModule="DailyTennis" customModuleProvider="target">
-                                <rect key="frame" x="224" y="260" width="190" height="250"/>
+                                <rect key="frame" x="0.0" y="990" width="190" height="250"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="OK9-fA-XoU">
                                     <rect key="frame" x="0.0" y="0.0" width="190" height="250"/>
@@ -248,6 +249,69 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cmu-Mc-m2w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2876.811594202899" y="158.70535714285714"/>
+        </scene>
+        <!--Favorites View Controller-->
+        <scene sceneID="AYl-H8-5zV">
+            <objects>
+                <collectionViewController storyboardIdentifier="Favorites" id="Kc3-dR-yBy" customClass="FavoritesViewController" customModule="DailyTennis" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="c33-MV-tB9">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="QYU-jg-x3f">
+                            <size key="itemSize" width="128" height="128"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FavoritesCell" id="Iow-y1-2LS" customClass="FavoritesVideoCell" customModule="DailyTennis" customModuleProvider="target">
+                                <rect key="frame" x="19.5" y="0.0" width="375" height="720"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Y7X-Ep-HKk">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="720"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pn5-oo-Q5R">
+                                            <rect key="frame" x="10" y="10" width="355" height="631.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="355" id="n79-a0-4Yz"/>
+                                                <constraint firstAttribute="width" secondItem="pn5-oo-Q5R" secondAttribute="height" multiplier="480:854" id="s6I-p2-yCD"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="January 5, 2019" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B1b-X7-ZIa">
+                                            <rect key="frame" x="126.5" y="661.5" width="122" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="pn5-oo-Q5R" firstAttribute="top" secondItem="Y7X-Ep-HKk" secondAttribute="top" constant="10" id="07P-90-Pc0"/>
+                                        <constraint firstAttribute="bottom" secondItem="B1b-X7-ZIa" secondAttribute="bottom" constant="37.5" id="4Lj-3m-iZT"/>
+                                        <constraint firstItem="B1b-X7-ZIa" firstAttribute="leading" secondItem="Y7X-Ep-HKk" secondAttribute="leading" constant="126.5" id="SOI-d8-PWV"/>
+                                        <constraint firstAttribute="trailing" secondItem="pn5-oo-Q5R" secondAttribute="trailing" constant="10" id="f2Q-oE-haq"/>
+                                        <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="B1b-X7-ZIa" secondAttribute="trailing" constant="126.5" id="idw-p6-JA6"/>
+                                        <constraint firstItem="B1b-X7-ZIa" firstAttribute="top" secondItem="pn5-oo-Q5R" secondAttribute="bottom" constant="20" id="rvz-ym-HFC"/>
+                                        <constraint firstItem="pn5-oo-Q5R" firstAttribute="leading" secondItem="Y7X-Ep-HKk" secondAttribute="leading" constant="10" id="zoz-ws-jQF"/>
+                                    </constraints>
+                                </collectionViewCellContentView>
+                                <size key="customSize" width="375" height="720"/>
+                                <connections>
+                                    <outlet property="imageView" destination="pn5-oo-Q5R" id="oNr-Ot-wPq"/>
+                                    <outlet property="name" destination="B1b-X7-ZIa" id="sGZ-Jd-ngf"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="Kc3-dR-yBy" id="fMa-lR-yrp"/>
+                            <outlet property="delegate" destination="Kc3-dR-yBy" id="06d-5P-8LC"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9qc-Es-dzr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3580" y="194"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="LBr-Ta-pUL">
@@ -338,7 +402,6 @@
         <image name="film" catalog="system" width="128" height="93"/>
         <image name="house" catalog="system" width="128" height="106"/>
         <image name="pencil.and.outline" catalog="system" width="128" height="128"/>
-        <image name="pencil.circle.fill" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
