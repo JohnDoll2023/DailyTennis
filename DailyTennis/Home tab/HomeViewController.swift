@@ -43,7 +43,7 @@ class HomeViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 4
+        return 2
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -60,9 +60,9 @@ class HomeViewController: UICollectionViewController {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "About", for: indexPath as IndexPath) as? AboutCell else {
                 fatalError("Unable to dequeue AboutCell.")
             }
-            cell.layer.borderColor = UIColor(white: 0, alpha: 0.3).cgColor
-            cell.layer.borderWidth = 2
-            cell.layer.borderColor = UIColor(white: 0, alpha: 0.3).cgColor
+//            cell.layer.borderColor = UIColor(white: 0, alpha: 0.3).cgColor
+//            cell.layer.borderWidth = 2
+//            cell.layer.borderColor = UIColor(white: 0, alpha: 0.3).cgColor
     //        cell.layer.borderWidth = 2
             cell.imageView.layer.masksToBounds = true
             cell.imageView.layer.borderColor = UIColor(white: 0, alpha: 0.3).cgColor
@@ -75,35 +75,42 @@ class HomeViewController: UICollectionViewController {
         
             return cell
             
-        } else if (indexPath.item == 1) {
+        } else {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "History", for: indexPath as IndexPath) as? HistoryCell else {
                 fatalError("Unable to dequeue HistoryCell.")
             }
-            cell.layer.borderColor = UIColor(white: 0, alpha: 0.3).cgColor
-            cell.layer.borderWidth = 2
+//            cell.layer.borderColor = UIColor(white: 0, alpha: 0.3).cgColor
+//            cell.layer.borderWidth = 2
             cell.imageView.layer.masksToBounds = true
             cell.imageView.layer.borderColor = UIColor(white: 0, alpha: 0.3).cgColor
     //        cell.imageView.layer.borderWidth = 2
             cell.imageView.layer.cornerRadius = 20
             
             return cell
-        } else if (indexPath.item == 2) {
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Featured", for: indexPath as IndexPath) as? FeaturedCell else {
-                fatalError("Unable to dequeue FeaturedCell.")
-            }
-            cell.layer.borderColor = UIColor(white: 0, alpha: 0.3).cgColor
-            cell.layer.borderWidth = 2
-            
-            return cell
-        } else {
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Favorites", for: indexPath as IndexPath) as? FavoritesCell else {
-                fatalError("Unable to dequeue FavoritesCell.")
-            }
-            cell.layer.borderColor = UIColor(white: 0, alpha: 0.3).cgColor
-            cell.layer.borderWidth = 2
-            
-            return cell
         }
+//        else if (indexPath.item == 2) {
+//            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Featured", for: indexPath as IndexPath) as? FeaturedCell else {
+//                fatalError("Unable to dequeue FeaturedCell.")
+//            }
+//            cell.layer.borderColor = UIColor(white: 0, alpha: 0.3).cgColor
+//            cell.layer.borderWidth = 2
+//            cell.imageView.layer.masksToBounds = true
+//            cell.imageView.layer.borderColor = UIColor(white: 0, alpha: 0.3).cgColor
+//    //        cell.imageView.layer.borderWidth = 2
+//            cell.imageView.layer.cornerRadius = 20
+//            let x = VideoViewController()
+//            print(x.thumbnails.count)
+//            cell.imageView.image = x.thumbnails.randomElement()
+//            return cell
+//        } else {
+//            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Favorites", for: indexPath as IndexPath) as? FavoritesCell else {
+//                fatalError("Unable to dequeue FavoritesCell.")
+//            }
+//            cell.layer.borderColor = UIColor(white: 0, alpha: 0.3).cgColor
+//            cell.layer.borderWidth = 2
+//
+//            return cell
+//        }
     }
     
 //    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -146,16 +153,17 @@ class HomeViewController: UICollectionViewController {
         if (indexPath.item == 0) {
             let vc = AboutViewController()
             navigationController?.pushViewController(vc, animated: true)
-        } else if (indexPath.item == 1) {
+        } else {
             let vc = HistoryViewController()
             navigationController?.pushViewController(vc, animated: true)
-        } else if (indexPath.item == 2) {
-            let vc = FeaturedViewController()
-            navigationController?.pushViewController(vc, animated: true)
-        } else {
-            let vc = FavoritesViewController()
-            navigationController?.pushViewController(vc, animated: true)
         }
+//        else if (indexPath.item == 2) {
+//            let vc = FeaturedViewController()
+//            navigationController?.pushViewController(vc, animated: true)
+//        } else {
+//            let vc = FavoritesViewController()
+//            navigationController?.pushViewController(vc, animated: true)
+//        }
     }
     
 

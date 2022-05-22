@@ -39,6 +39,7 @@ class VideoViewController: UICollectionViewController {
         // Do any additional setup after loading the view.
         
         title = "Daily Tennis"
+        navigationController?.tabBarItem.title = "Videos"
         navigationController?.navigationBar.prefersLargeTitles = true
         
 //        let fm = FileManager.default

@@ -97,15 +97,15 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IMG_7016 2" translatesAutoresizingMaskIntoConstraints="NO" id="Z2q-Tz-xU2">
-                                            <rect key="frame" x="10" y="10" width="170" height="172"/>
+                                            <rect key="frame" x="10" y="10" width="170" height="170"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="172" id="hKU-Qw-fOt"/>
-                                                <constraint firstAttribute="width" constant="172" id="wDC-0V-aJ1"/>
+                                                <constraint firstAttribute="width" constant="170" id="8Bn-Ke-TQc"/>
+                                                <constraint firstAttribute="height" constant="170" id="al1-pq-Xe9"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ldq-8u-Cwn">
-                                            <rect key="frame" x="72" y="197" width="46" height="38"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <rect key="frame" x="72" y="187" width="58" height="40"/>
+                                            <fontDescription key="fontDescription" name="KohinoorGujarati-Bold" family="Kohinoor Gujarati" pointSize="20"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -114,8 +114,8 @@
                                         <constraint firstItem="Z2q-Tz-xU2" firstAttribute="leading" secondItem="Utu-lL-kQG" secondAttribute="leading" constant="10" id="BKd-2E-7oe"/>
                                         <constraint firstItem="Z2q-Tz-xU2" firstAttribute="top" secondItem="Utu-lL-kQG" secondAttribute="top" constant="10" id="Jh1-Py-PlI"/>
                                         <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="ldq-8u-Cwn" secondAttribute="trailing" constant="72" id="VTO-oU-594"/>
-                                        <constraint firstItem="ldq-8u-Cwn" firstAttribute="top" secondItem="Z2q-Tz-xU2" secondAttribute="bottom" constant="15" id="lgt-aA-TxX"/>
-                                        <constraint firstAttribute="bottom" secondItem="ldq-8u-Cwn" secondAttribute="bottom" constant="15" id="rAA-xv-yUr"/>
+                                        <constraint firstItem="ldq-8u-Cwn" firstAttribute="top" secondItem="Z2q-Tz-xU2" secondAttribute="bottom" constant="7" id="lgt-aA-TxX"/>
+                                        <constraint firstAttribute="bottom" secondItem="ldq-8u-Cwn" secondAttribute="bottom" constant="23" id="rAA-xv-yUr"/>
                                         <constraint firstAttribute="trailing" secondItem="Z2q-Tz-xU2" secondAttribute="trailing" constant="10" id="vxn-vi-ViS"/>
                                         <constraint firstItem="ldq-8u-Cwn" firstAttribute="leading" secondItem="Utu-lL-kQG" secondAttribute="leading" constant="72" id="yhM-zi-sfo"/>
                                     </constraints>
@@ -134,27 +134,27 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IMG_6999 2" translatesAutoresizingMaskIntoConstraints="NO" id="OoT-IH-vz1">
-                                            <rect key="frame" x="10" y="10" width="170" height="172"/>
+                                            <rect key="frame" x="10" y="10" width="170" height="170"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="172" id="FPd-0U-HFd"/>
-                                                <constraint firstAttribute="width" constant="172" id="hPS-2p-XDJ"/>
+                                                <constraint firstAttribute="width" constant="170" id="1Iu-Io-g82"/>
+                                                <constraint firstAttribute="height" constant="170" id="aWk-AP-JfK"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="History" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hj3-35-fxG">
-                                            <rect key="frame" x="67" y="197" width="55" height="38"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <rect key="frame" x="60" y="187" width="69" height="40"/>
+                                            <fontDescription key="fontDescription" name="KohinoorGujarati-Bold" family="Kohinoor Gujarati" pointSize="20"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="OoT-IH-vz1" firstAttribute="leading" secondItem="LLs-6L-ZIp" secondAttribute="leading" constant="10" id="13z-lL-QXO"/>
-                                        <constraint firstItem="Hj3-35-fxG" firstAttribute="top" secondItem="OoT-IH-vz1" secondAttribute="bottom" constant="15" id="1Od-Bb-ewC"/>
-                                        <constraint firstAttribute="bottom" secondItem="Hj3-35-fxG" secondAttribute="bottom" constant="15" id="2jt-dd-Mp4"/>
+                                        <constraint firstItem="Hj3-35-fxG" firstAttribute="top" secondItem="OoT-IH-vz1" secondAttribute="bottom" constant="7" id="1Od-Bb-ewC"/>
+                                        <constraint firstAttribute="bottom" secondItem="Hj3-35-fxG" secondAttribute="bottom" constant="23" id="2jt-dd-Mp4"/>
                                         <constraint firstItem="OoT-IH-vz1" firstAttribute="top" secondItem="LLs-6L-ZIp" secondAttribute="top" constant="10" id="3lF-LF-cdj"/>
-                                        <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="Hj3-35-fxG" secondAttribute="trailing" constant="68" id="OlL-KN-aGh"/>
+                                        <constraint firstAttribute="trailing" secondItem="Hj3-35-fxG" secondAttribute="trailing" constant="61" id="V4N-ps-J8T"/>
                                         <constraint firstAttribute="trailing" secondItem="OoT-IH-vz1" secondAttribute="trailing" constant="10" id="bo6-Jo-slx"/>
-                                        <constraint firstItem="Hj3-35-fxG" firstAttribute="leading" secondItem="LLs-6L-ZIp" secondAttribute="leading" constant="67" id="nll-Vz-c0v"/>
+                                        <constraint firstItem="Hj3-35-fxG" firstAttribute="leading" secondItem="LLs-6L-ZIp" secondAttribute="leading" constant="60" id="gyt-SC-j8n"/>
                                     </constraints>
                                 </collectionViewCellContentView>
                                 <size key="customSize" width="190" height="250"/>
@@ -273,7 +273,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tMv-6J-ewD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5544.9275362318849" y="889.95535714285711"/>
+            <point key="canvasLocation" x="3586" y="826"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Aw8-9J-vOv">
@@ -293,11 +293,11 @@
             </objects>
             <point key="canvasLocation" x="1260" y="522"/>
         </scene>
-        <!--Item 1-->
+        <!--Home-->
         <scene sceneID="XLZ-vN-9SC">
             <objects>
                 <navigationController storyboardIdentifier="HomeNavController" automaticallyAdjustsScrollViewInsets="NO" id="jgz-Dv-GLT" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 1" id="wro-Wr-FCO"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="house" catalog="system" selectedImage="house" id="wro-Wr-FCO"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="2vk-7f-OVX">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -312,11 +312,11 @@
             </objects>
             <point key="canvasLocation" x="2150.7246376811595" y="158.70535714285714"/>
         </scene>
-        <!--Item 2-->
+        <!--Videos-->
         <scene sceneID="KIp-8Y-GhX">
             <objects>
                 <navigationController storyboardIdentifier="VideoNavController" automaticallyAdjustsScrollViewInsets="NO" id="aGG-Uc-CF5" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 2" id="IZr-Mj-wfv"/>
+                    <tabBarItem key="tabBarItem" title="Videos" image="film" catalog="system" selectedImage="film" id="IZr-Mj-wfv"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="cAu-SL-63b">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -335,6 +335,8 @@
     <resources>
         <image name="IMG_6999 2" width="1170" height="1170"/>
         <image name="IMG_7016 2" width="3024" height="3024"/>
+        <image name="film" catalog="system" width="128" height="93"/>
+        <image name="house" catalog="system" width="128" height="106"/>
         <image name="pencil.and.outline" catalog="system" width="128" height="128"/>
         <image name="pencil.circle.fill" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
