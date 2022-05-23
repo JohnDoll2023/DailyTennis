@@ -218,59 +218,23 @@ class VideoViewController: UICollectionViewController {
         title = "Daily Tennis"
         navigationController?.tabBarItem.title = "Videos"
         navigationController?.navigationBar.prefersLargeTitles = true
-//        print(videos.count)
-//        loadImageUsingUrlString(urlString: videoURL)
-//        let fm = FileManager.default
-//        let path = Bundle.main.resourcePath!
-//        let items = try! fm.contentsOfDirectory(atPath: path)
-//        for item in items {
-//            if item.hasPrefix("nssl") {
-//                // this is picture to load
-//                self.pictures.append(item)
-//            }
-//        }
-//        let url = URL(string: videoURL)
-//        self.getThumbnail(url: url!) { (thumbImage) in
-//            self.dtimage = thumbImage
-//        }
-//        for video in videos {
-//            let url = URL(string: video)
-//            self.getThumbnail(url: url!) { (thumbImage) in
-//                print("here")
-//                self.thumbnails.append(thumbImage!)
-//            }
-//        }
         
         // loads thumbnails
         DispatchQueue.global(qos: .userInteractive).async {
             for video in self.videos {
-    //            print("here")
-                
                 if self.thumbnailDict[video] == nil {
-                    print(video)
                     self.thumbnailDict[video] = self.generateThumbnail(path: video)
                 }
-    //            print("here2")
             }
         }
-        
     }
     
     // thumbnail loader
     func generateThumbnail(path: String) -> UIImage? {
-        if thumbnailDict.index(forKey: path) != nil {
-            return thumbnailDict[path]
-        }
-//        if let imageFromCache = thumbnailCache.object(forKey: path as NSURL) {
-//            return imageFromCache
-//        }
         do {
-            let asset = AVURLAsset(url: URL(string: "https://dailytennis.s3.us-east-2.amazonaws.com/\(path)")!, options: nil)
-            let imgGenerator = AVAssetImageGenerator(asset: asset)
+            let imgGenerator = AVAssetImageGenerator(asset: AVURLAsset(url: URL(string: "https://dailytennis.s3.us-east-2.amazonaws.com/\(path)")!, options: nil))
             imgGenerator.appliesPreferredTrackTransform = true
-            let cgImage = try imgGenerator.copyCGImage(at: CMTimeMake(value: 0, timescale: 1), actualTime: nil)
-            let thumbnail = UIImage(cgImage: cgImage)
-//            thumbnailCache.setObject(thumbnail, forKey: path as NSURL)
+            let thumbnail = UIImage(cgImage: try imgGenerator.copyCGImage(at: CMTimeMake(value: 0, timescale: 1), actualTime: nil))
             thumbnailDict[path] = thumbnail
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
@@ -292,20 +256,17 @@ class VideoViewController: UICollectionViewController {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DTVideo", for: indexPath) as? DTVideoCell else {
             fatalError("Unable to dequeue DTVideoCell.")
         }
-//        cell.imageView.image = UIImage(named: pictures[indexPath.item])
-//        cell.imageView.image = generateThumbnail(path: videos[indexPath.item])
-//        print(thumbnailDict[videos[indexPath.item]])
-        print("video: \(videos[indexPath.item])")
+        
+        // only need to reload if cells that im at are the ones updated
+        // need to figure out how to load locally
         if thumbnailDict[videos[indexPath.item]] == nil {
             DispatchQueue.global(qos:.userInitiated).async {
-                print("its working \(indexPath.item)")
                 self.thumbnailDict[self.videos[indexPath.item]] = self.generateThumbnail(path: self.videos[indexPath.item])
-//                    DispatchQueue.main.async {
-//                        collectionView.reloadData()
-//                    }
-//                collectionView.performSelector(onMainThread: #selector(collectionView.reloadData), with: <#T##Any?#>, waitUntilDone: <#T##Bool#>)
             }
         }
+        
+        // only need to reload if cells that im at are the ones updated
+        // need to figure out how to load locally
         cell.imageView.image = thumbnailDict[videos[indexPath.item]]
         cell.imageView.layer.borderColor = UIColor(white: 0, alpha: 0.3).cgColor
         cell.imageView.layer.cornerRadius = 50

@@ -18,34 +18,16 @@ class HomeViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //loads thumbnails
-//        DispatchQueue.global().async {
-//            for video in self.vvc.videos {
-//                print(video)
-//                self.vvc.thumbnailDict[video] = (self.vvc.generateThumbnail(path: video))
-//    //            print("here2")
-//            }
-//        }
+        // gotta make back button say home but dont want navbar coming up
+//        title = "Home"
+//        navigationController?.navigationBar.isHidden = true
     }
     
     func generateThumbnail(path: String) -> UIImage? {
-//        if thumbnailDict.index(forKey: path) != nil {
-//            return thumbnailDict[path]
-//        }
-//        if let imageFromCache = thumbnailCache.object(forKey: path as NSURL) {
-//            return imageFromCache
-//        }
         do {
-            let asset = AVURLAsset(url: URL(string: "https://dailytennis.s3.us-east-2.amazonaws.com/\(path)")!, options: nil)
-            let imgGenerator = AVAssetImageGenerator(asset: asset)
+            let imgGenerator = AVAssetImageGenerator(asset: AVURLAsset(url: URL(string: "https://dailytennis.s3.us-east-2.amazonaws.com/\(path)")!, options: nil))
             imgGenerator.appliesPreferredTrackTransform = true
-            let cgImage = try imgGenerator.copyCGImage(at: CMTimeMake(value: 0, timescale: 1), actualTime: nil)
-            let thumbnail = UIImage(cgImage: cgImage)
-//            thumbnailCache.setObject(thumbnail, forKey: path as NSURL)
-//            thumbnailDict[path] = thumbnail
-//            collectionView.reloadData()
-            return thumbnail
+            return UIImage(cgImage: try imgGenerator.copyCGImage(at: CMTimeMake(value: 0, timescale: 1), actualTime: nil))
         } catch let error {
             print("*** Error generating thumbnail: \(error.localizedDescription)")
             return nil
