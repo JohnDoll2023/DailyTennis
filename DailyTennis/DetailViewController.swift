@@ -61,7 +61,7 @@ class DetailViewController: UIViewController {
     
     @objc func videoDidEnd(notification: NSNotification) {
         // make it so that when the video ends, it takes just a second to go back to main screen
-        usleep(750_000)
+        usleep(500_000)
         _ = navigationController?.popViewController(animated: true)
     }
     
