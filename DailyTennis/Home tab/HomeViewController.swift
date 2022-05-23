@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVKit
 
 class HomeViewController: UICollectionViewController {
     
@@ -17,6 +18,38 @@ class HomeViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //loads thumbnails
+//        DispatchQueue.global().async {
+//            for video in self.vvc.videos {
+//                print(video)
+//                self.vvc.thumbnailDict[video] = (self.vvc.generateThumbnail(path: video))
+//    //            print("here2")
+//            }
+//        }
+    }
+    
+    func generateThumbnail(path: String) -> UIImage? {
+//        if thumbnailDict.index(forKey: path) != nil {
+//            return thumbnailDict[path]
+//        }
+//        if let imageFromCache = thumbnailCache.object(forKey: path as NSURL) {
+//            return imageFromCache
+//        }
+        do {
+            let asset = AVURLAsset(url: URL(string: "https://dailytennis.s3.us-east-2.amazonaws.com/\(path)")!, options: nil)
+            let imgGenerator = AVAssetImageGenerator(asset: asset)
+            imgGenerator.appliesPreferredTrackTransform = true
+            let cgImage = try imgGenerator.copyCGImage(at: CMTimeMake(value: 0, timescale: 1), actualTime: nil)
+            let thumbnail = UIImage(cgImage: cgImage)
+//            thumbnailCache.setObject(thumbnail, forKey: path as NSURL)
+//            thumbnailDict[path] = thumbnail
+//            collectionView.reloadData()
+            return thumbnail
+        } catch let error {
+            print("*** Error generating thumbnail: \(error.localizedDescription)")
+            return nil
+        }
     }
 
     // sets number of tabs on home screen
@@ -52,7 +85,7 @@ class HomeViewController: UICollectionViewController {
             }
             cell.imageView.layer.borderColor = UIColor(white: 0, alpha: 0.3).cgColor
             cell.imageView.layer.cornerRadius = 20
-            cell.imageView.image = vvc.generateThumbnail(path: URL(string: "https://dailytennis.s3.us-east-2.amazonaws.com/\(featured)")!)
+            cell.imageView.image = generateThumbnail(path: featured)
             return cell
             
             // favorites cell in lower right (might be bottom mid in future)
@@ -62,7 +95,7 @@ class HomeViewController: UICollectionViewController {
             }
             cell.imageView.layer.borderColor = UIColor(white: 0, alpha: 0.3).cgColor
             cell.imageView.layer.cornerRadius = 20
-            cell.imageView.image = vvc.generateThumbnail(path: URL(string: "https://dailytennis.s3.us-east-2.amazonaws.com/\(favorite)")!)
+            cell.imageView.image = generateThumbnail(path: favorite)
             cell.layer.borderColor = UIColor(white: 0, alpha: 0.3).cgColor
             cell.layer.borderWidth = 2
             return cell
@@ -80,7 +113,7 @@ class HomeViewController: UICollectionViewController {
                 navigationController?.pushViewController(vc, animated: true)
             case 2:
                 let vc = DetailViewController()
-                vc.selectedVideo = URL(string: "https://dailytennis.s3.us-east-2.amazonaws.com/\(featured)")
+                vc.selectedVideo = featured
                 navigationController?.pushViewController(vc, animated: true)
             default:
                 if let vc = storyboard?.instantiateViewController(withIdentifier: "Favorites") as? FavoritesViewController {

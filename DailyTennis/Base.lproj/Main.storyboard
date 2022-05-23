@@ -39,7 +39,7 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qwQ-jY-hNa">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dt 2 copy" translatesAutoresizingMaskIntoConstraints="NO" id="qwQ-jY-hNa">
                                             <rect key="frame" x="10" y="10" width="355" height="631.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="qwQ-jY-hNa" secondAttribute="height" multiplier="480:854" priority="999" id="3B2-SX-erj"/>
@@ -204,7 +204,7 @@
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Favorites" id="7R7-iZ-e7P" customClass="FavoritesCell" customModule="DailyTennis" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="990" width="190" height="250"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="OK9-fA-XoU">
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="OK9-fA-XoU">
                                     <rect key="frame" x="0.0" y="0.0" width="190" height="250"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
@@ -215,7 +215,7 @@
                                                 <constraint firstAttribute="height" constant="143.5" id="wbD-4f-63g"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Favorites" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1qA-df-fs7">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Favorites" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1qA-df-fs7">
                                             <rect key="frame" x="60" y="219" width="69" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -399,6 +399,7 @@
     <resources>
         <image name="IMG_6999 2" width="1170" height="1170"/>
         <image name="IMG_7016 2" width="3024" height="3024"/>
+        <image name="dt 2 copy" width="350" height="351"/>
         <image name="film" catalog="system" width="128" height="93"/>
         <image name="house" catalog="system" width="128" height="106"/>
         <image name="pencil.and.outline" catalog="system" width="128" height="128"/>

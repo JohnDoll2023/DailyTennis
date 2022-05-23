@@ -55,7 +55,7 @@ class FavoritesViewController: UICollectionViewController {
             fatalError("Unable to dequeue FavoritesVideoCell.")
         }
 //        cell.imageView.image = UIImage(named: pictures[indexPath.item])
-        cell.imageView.image = vvc.generateThumbnail(path: URL(string: "https://dailytennis.s3.us-east-2.amazonaws.com/\(favorites[indexPath.item])")!)
+        cell.imageView.image = vvc.generateThumbnail(path: favorites[indexPath.item])
         cell.imageView.layer.borderColor = UIColor(white: 0, alpha: 0.3).cgColor
         cell.imageView.layer.cornerRadius = 50
         
@@ -80,7 +80,7 @@ class FavoritesViewController: UICollectionViewController {
         if let vc = storyboard?.instantiateViewController(withIdentifier: "Detail") as? DetailViewController {
             // set video to url for the cell
             print("here")
-            vc.selectedVideo = URL(string: "https://dailytennis.s3.us-east-2.amazonaws.com/\(favorites[indexPath.item])")
+            vc.selectedVideo = favorites[indexPath.item]
             navigationController?.pushViewController(vc, animated: true)
         }
     }

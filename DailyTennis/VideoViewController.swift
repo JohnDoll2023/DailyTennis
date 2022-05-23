@@ -205,9 +205,8 @@ class VideoViewController: UICollectionViewController {
         "mechanicssuck.MOV",
     ]
     
-    
-    
-    let thumbnailCache = NSCache<NSURL, UIImage>()
+//    let thumbnailCache = NSCache<NSURL, UIImage>()
+    var thumbnailDict = [String:UIImage]()
     
     // holds the thumbnails for the videos
 //    var thumbnails = [UIImage]()
@@ -219,7 +218,7 @@ class VideoViewController: UICollectionViewController {
         title = "Daily Tennis"
         navigationController?.tabBarItem.title = "Videos"
         navigationController?.navigationBar.prefersLargeTitles = true
-        print(videos.count)
+//        print(videos.count)
 //        loadImageUsingUrlString(urlString: videoURL)
 //        let fm = FileManager.default
 //        let path = Bundle.main.resourcePath!
@@ -243,29 +242,40 @@ class VideoViewController: UICollectionViewController {
 //        }
         
         // loads thumbnails
-//        DispatchQueue.global().async {
-//            for video in self.videos {
-//                let url = URL(string: "https://dailytennis.s3.us-east-2.amazonaws.com/\(video)")
-//    //            print("here")
-//                self.thumbnails.append(self.generateThumbnail(path: url!)!)
-//    //            print("here2")
-//            }
-//        }
+        DispatchQueue.global(qos: .userInteractive).async {
+            for video in self.videos {
+    //            print("here")
+                
+                if self.thumbnailDict[video] == nil {
+                    print(video)
+                    self.thumbnailDict[video] = self.generateThumbnail(path: video)
+                }
+    //            print("here2")
+            }
+        }
         
     }
     
     // thumbnail loader
-    func generateThumbnail(path: URL) -> UIImage? {
-        if let imageFromCache = thumbnailCache.object(forKey: path as NSURL) {
-            return imageFromCache
+    func generateThumbnail(path: String) -> UIImage? {
+        if thumbnailDict.index(forKey: path) != nil {
+            return thumbnailDict[path]
         }
+//        if let imageFromCache = thumbnailCache.object(forKey: path as NSURL) {
+//            return imageFromCache
+//        }
         do {
-            let asset = AVURLAsset(url: path, options: nil)
+            let asset = AVURLAsset(url: URL(string: "https://dailytennis.s3.us-east-2.amazonaws.com/\(path)")!, options: nil)
             let imgGenerator = AVAssetImageGenerator(asset: asset)
             imgGenerator.appliesPreferredTrackTransform = true
             let cgImage = try imgGenerator.copyCGImage(at: CMTimeMake(value: 0, timescale: 1), actualTime: nil)
             let thumbnail = UIImage(cgImage: cgImage)
-            thumbnailCache.setObject(thumbnail, forKey: path as NSURL)
+//            thumbnailCache.setObject(thumbnail, forKey: path as NSURL)
+            thumbnailDict[path] = thumbnail
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+            
             return thumbnail
         } catch let error {
             print("*** Error generating thumbnail: \(error.localizedDescription)")
@@ -283,7 +293,20 @@ class VideoViewController: UICollectionViewController {
             fatalError("Unable to dequeue DTVideoCell.")
         }
 //        cell.imageView.image = UIImage(named: pictures[indexPath.item])
-        cell.imageView.image = generateThumbnail(path: URL(string: "https://dailytennis.s3.us-east-2.amazonaws.com/\(videos[indexPath.item])")!)
+//        cell.imageView.image = generateThumbnail(path: videos[indexPath.item])
+//        print(thumbnailDict[videos[indexPath.item]])
+        print("video: \(videos[indexPath.item])")
+        if thumbnailDict[videos[indexPath.item]] == nil {
+            DispatchQueue.global(qos:.userInitiated).async {
+                print("its working \(indexPath.item)")
+                self.thumbnailDict[self.videos[indexPath.item]] = self.generateThumbnail(path: self.videos[indexPath.item])
+//                    DispatchQueue.main.async {
+//                        collectionView.reloadData()
+//                    }
+//                collectionView.performSelector(onMainThread: #selector(collectionView.reloadData), with: <#T##Any?#>, waitUntilDone: <#T##Bool#>)
+            }
+        }
+        cell.imageView.image = thumbnailDict[videos[indexPath.item]]
         cell.imageView.layer.borderColor = UIColor(white: 0, alpha: 0.3).cgColor
         cell.imageView.layer.cornerRadius = 50
         
@@ -307,7 +330,7 @@ class VideoViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let vc = storyboard?.instantiateViewController(withIdentifier: "Detail") as? DetailViewController {
             // set video to url for the cell
-            vc.selectedVideo = URL(string: "https://dailytennis.s3.us-east-2.amazonaws.com/\(videos[indexPath.item])")
+            vc.selectedVideo = videos[indexPath.item]
             navigationController?.pushViewController(vc, animated: true)
         }
     }

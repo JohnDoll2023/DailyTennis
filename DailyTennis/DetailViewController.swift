@@ -9,7 +9,7 @@ import UIKit
 import AVKit
 
 class DetailViewController: UIViewController {
-    var selectedVideo: URL?
+    var selectedVideo: String?
     var videoPlayer: AVPlayer!
     
     override func viewDidLoad() {
@@ -34,7 +34,7 @@ class DetailViewController: UIViewController {
     // the video player
     override func viewDidAppear(_ animated: Bool) {
        super.viewDidAppear(animated)
-       if let url = selectedVideo {
+        if let url = URL(string: "https://dailytennis.s3.us-east-2.amazonaws.com/\(selectedVideo ?? "")") {
            videoPlayer = AVPlayer(url: url)
            let playerLayer = AVPlayerLayer(player: videoPlayer)
            let playerViewController = AVPlayerViewController()
@@ -61,7 +61,7 @@ class DetailViewController: UIViewController {
     
     @objc func videoDidEnd(notification: NSNotification) {
         // make it so that when the video ends, it takes just a second to go back to main screen
-        usleep(500_000)
+        usleep(750_000)
         _ = navigationController?.popViewController(animated: true)
     }
     
