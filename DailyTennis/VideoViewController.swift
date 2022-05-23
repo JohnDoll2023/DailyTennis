@@ -20,7 +20,7 @@ class VideoViewController: UICollectionViewController {
 ////                print(error)
 //                return
 //            }
-////            DispatchQueue.main.async {
+//            DispatchQueue.main.async {
 //            print(data!)
 //                let imageToCache = UIImage(data: data!)
 ////                imageCache.setObject(imageToCache!, forKey: url!)
@@ -41,7 +41,7 @@ class VideoViewController: UICollectionViewController {
         "7-30-17.mp4",
         "8-1-17.mp4",
         "8-2-17.mp4",
-        "8-6-17.mp4",
+        "8-6-17.mov",
         "8-7-17.mp4",
         "8-8-17.mp4",
         "8-9-17.mp4",
@@ -69,7 +69,7 @@ class VideoViewController: UICollectionViewController {
         "1-16-18.mp4",
         "1-21-18.mov",
         "1-28-18.mp4",
-        "2-4-18.mp4",
+        "2-4-18.mov",
         "2-18-18.mp4",
         "2-22-18.mp4",
         "2-23-18.mp4",
