@@ -7,8 +7,11 @@
 
 import UIKit
 import AVKit
+import SwiftUI
+import MessageUI
+import ContactsUI
 
-class DetailViewController: UIViewController {
+class DetailViewController: UIViewController, MFMailComposeViewControllerDelegate {
     var selectedVideo: String?
     var videoPlayer: AVPlayer!
     
@@ -53,10 +56,57 @@ class DetailViewController: UIViewController {
 //
 //           }
        }
+        
+        // report button
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Report", style: .plain, target: self, action: #selector(report))
+        
         // calls videoDidEnd method to return to main nav controller
         NotificationCenter.default.addObserver(self, selector: #selector(videoDidEnd), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
         // might want to use if i can set playback nicely
 //        NotificationCenter.default.addObserver(self, selector: #selector(videoDidEnd), name: NSNotification.Name.AVPlayerItemPlaybackStalled, object: nil)
+    }
+    
+    // report function sends email to me when user decides they want to send report
+    @objc func report() {
+        let ac = UIAlertController(title: "Report", message: "Would you like to report this video for objectionable content?", preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "Yes", style: .default) {_ in
+            
+            // create email UI
+            if MFMailComposeViewController.canSendMail() {
+                let splitEnds = self.selectedVideo!.components(separatedBy: ".")[0]
+                let dateParts = splitEnds.components(separatedBy: "-")
+                var titleString = splitEnds
+                if (dateParts.count >= 3) {
+                    let month: Int? = Int(dateParts[0])
+                    let day = dateParts[1]
+                    let year = dateParts[2]
+                    let monthstr = Calendar.current.monthSymbols[month! - 1]
+                    titleString = "\(monthstr) \(day), 20\(year)"
+                }
+                
+                let mail = MFMailComposeViewController()
+                mail.mailComposeDelegate = self //as? MFMailComposeViewControllerDelegate
+                mail.setToRecipients(["me@johnmdoll.com"])
+                mail.setSubject("Objectionable video in Daily Tennis app")
+                mail.setMessageBody("The daily tennis video from \(titleString) needs review for objectionable content.", isHTML: true)
+                self.present(mail, animated: true, completion: nil)
+            } else {
+                print("Cannot send email")
+            }
+            
+            // should close out email UI when user makes decision
+            func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: NSError?) {
+                // Check the result or perform other tasks.
+                
+                // Dismiss the mail compose view controller.
+                controller.dismiss(animated: true, completion: nil)
+                self.dismiss(animated: true, completion: nil)
+            }
+            
+            
+        })
+        ac.addAction(UIAlertAction(title: "No", style: .default))
+        present(ac, animated: true)
     }
     
     @objc func videoDidEnd(notification: NSNotification) {

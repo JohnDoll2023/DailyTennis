@@ -7,8 +7,10 @@
 
 import UIKit
 import AVKit
+import SwiftUI
 
 class HomeViewController: UICollectionViewController {
+    let defaults = UserDefaults.standard
     
     var vvc = VideoViewController()
     lazy var featured: String = vvc.videos.randomElement()!
@@ -21,8 +23,26 @@ class HomeViewController: UICollectionViewController {
         // gotta make back button say home but dont want navbar coming up
 //        title = "Home"
 //        navigationController?.navigationBar.isHidden = true
+        if (!defaults.bool(forKey: "agreeToEULA")) {
+            agreement()
+        }
     }
     
+    // user agreement alert
+    @objc func agreement() {
+//        let attributedString = NSMutableAttributedString(string: "Link to Agreement")
+//        attributedString.addAttribute(.link, value:
+//        "https://johnmdoll.com/projects/dailytennis/dailytennisEULA.html", range: NSRange(location: 0, length: 16))
+        
+        let ac = UIAlertController(title: "By tapping \"I Agree\", you agree to the EULA provided at the source below", message: "https://johnmdoll.com/projects/dailytennis/dailytennisEULA.html", preferredStyle: .alert)
+        
+        ac.addAction(UIAlertAction(title: "I Agree", style: .default))
+        present(ac, animated: true)
+        defaults.set(true, forKey: "agreeToEULA")
+        
+    }
+    
+    // thumbnail generator that doesn't reload the view continously
     func generateThumbnail(path: String) -> UIImage? {
         do {
             let imgGenerator = AVAssetImageGenerator(asset: AVURLAsset(url: URL(string: "https://dailytennis.s3.us-east-2.amazonaws.com/\(path)")!, options: nil))
