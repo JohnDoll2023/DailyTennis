@@ -14,5 +14,6 @@ class DTVideoCell: UICollectionViewCell {
     @IBAction func tapped(_ sender: Any) {
         favorite.setImage(UIImage(named: "star.fill"), for: UIControl.State.normal)
     }
+    @IBOutlet var share: UIButton!
     var favorited = false
 }
