@@ -8,6 +8,9 @@
 import UIKit
 import AVKit
 
+var thumbnailDict = [String:UIImage]()
+let defaults = UserDefaults.standard
+
 class VideoViewController: UICollectionViewController {
     
 //    let videoURL = "https://dailytennis.s3.us-east-2.amazonaws.com/1-21-18.mov"
@@ -205,8 +208,17 @@ class VideoViewController: UICollectionViewController {
         "mechanicssuck.MOV",
     ]
     
+    var userFavorites: [String] {
+        get {
+            return UserDefaults.standard.array(forKey: "userFavorites") as? [String] ?? []
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "userFavorites")
+        }
+    }
+    
 //    let thumbnailCache = NSCache<NSURL, UIImage>()
-    var thumbnailDict = [String:UIImage]()
+//    var thumbnailDict = [String:UIImage]()
     
     // holds the thumbnails for the videos
 //    var thumbnails = [UIImage]()
@@ -220,14 +232,28 @@ class VideoViewController: UICollectionViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         
         // loads thumbnails
-        DispatchQueue.global(qos: .userInteractive).async {
-            for video in self.videos {
-                if self.thumbnailDict[video] == nil {
-                    self.thumbnailDict[video] = self.generateThumbnail(path: video)
-                }
-            }
-        }
+//        DispatchQueue.global(qos: .userInteractive).async {
+//            for video in self.videos {
+//                if thumbnailDict[video] == nil {
+//                    thumbnailDict[video] = self.generateThumbnail(path: video)
+//                }
+//            }
+//        }
+    
+        
+        
     }
+    
+//    func thumbnailGenerator() {
+////        DispatchQueue.global(qos: .userInteractive).async {
+//            for video in self.videos {
+//                if thumbnailDict[video] == nil {
+//                    thumbnailDict[video] = self.generateThumbnail(path: video)
+//                }
+//            }
+////        }
+//    }
+    
     
     // thumbnail loader
     func generateThumbnail(path: String) -> UIImage? {
@@ -261,7 +287,7 @@ class VideoViewController: UICollectionViewController {
         // need to figure out how to load locally
         if thumbnailDict[videos[indexPath.item]] == nil {
             DispatchQueue.global(qos:.userInitiated).async {
-                self.thumbnailDict[self.videos[indexPath.item]] = self.generateThumbnail(path: self.videos[indexPath.item])
+                thumbnailDict[self.videos[indexPath.item]] = self.generateThumbnail(path: self.videos[indexPath.item])
             }
         }
         
@@ -270,6 +296,18 @@ class VideoViewController: UICollectionViewController {
         cell.imageView.image = thumbnailDict[videos[indexPath.item]]
         cell.imageView.layer.borderColor = UIColor(white: 0, alpha: 0.3).cgColor
         cell.imageView.layer.cornerRadius = 50
+        
+//        if (userFavorites.contains(videos[indexPath.item])) {
+//            cell.favorite.
+//        }
+        if (cell.favorite.isTouchInside) {
+            cell.favorite.setImage(UIImage(named: "star.fill"), for: UIControl.State.normal)
+            cell.favorite.isEnabled = true
+        }
+        
+        if (!cell.favorite.isEnabled) {
+            cell.favorite.setImage(UIImage(named: "star.fill"), for: UIControl.State.normal)
+        }
         
         // creates cell description
         let str = videos[indexPath.item]
