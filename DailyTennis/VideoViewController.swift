@@ -239,7 +239,7 @@ class VideoViewController: UICollectionViewController {
 //                }
 //            }
 //        }
-        var rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes))
+        let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes))
         rightSwipe.direction = .right
 
 
@@ -258,7 +258,12 @@ class VideoViewController: UICollectionViewController {
 //        if (sender.direction == .right) {
 
 //        }
-        self.tabBarController?.selectedIndex -= 1
+        
+        
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "customTabBarController") as! CustomTabBarController
+        vc.set(selectedIndex: 0)
+//        CustomTabBarController.setSelectedWithIndex(0)
+//        tabBarController.setSelectedWithIndex(0)
     }
     
 //    func thumbnailGenerator() {

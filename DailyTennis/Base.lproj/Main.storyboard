@@ -347,10 +347,10 @@
             </objects>
             <point key="canvasLocation" x="3586" y="826"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Custom Tab Bar Controller-->
         <scene sceneID="Aw8-9J-vOv">
             <objects>
-                <tabBarController id="RGq-aA-QzY" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="customTabBarController" id="RGq-aA-QzY" customClass="CustomTabBarController" customModule="DailyTennis" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="r21-jz-PvI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

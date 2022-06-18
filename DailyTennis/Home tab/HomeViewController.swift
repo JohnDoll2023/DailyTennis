@@ -211,7 +211,7 @@ class HomeViewController: UICollectionViewController {
                 }
             }
         }
-        var leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes))
+        let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes))
         leftSwipe.direction = .left
 
 
@@ -221,14 +221,17 @@ class HomeViewController: UICollectionViewController {
     @objc func handleSwipes(sender:UISwipeGestureRecognizer) {
 //        if (sender.direction == .left) {
 //            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//            let vc = storyboard.instantiateViewController(withIdentifier: "VideoViewController") as! UICollectionViewController
+//            let vc1 = storyboard.instantiateViewController(withIdentifier: "VideoViewController") as! UICollectionViewController
 //            self.present(vc, animated: false, completion: nil)
 //        }
 //
 //        if (sender.direction == .right) {
 
 //        }
-        self.tabBarController?.selectedIndex += 1
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "customTabBarController") as! CustomTabBarController
+        vc.set(selectedIndex: 1)
+        vc1.selectedIndex = 1
+//        tabBarController
     }
     
     // user agreement alert
