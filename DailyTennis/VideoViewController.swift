@@ -303,7 +303,7 @@ class VideoViewController: UICollectionViewController {
         // only need to reload if cells that im at are the ones updated
         // need to figure out how to load locally
         if thumbnailDict[videos[indexPath.item]] == nil {
-            DispatchQueue.global(qos:.userInitiated).async {
+            DispatchQueue.global(qos:.userInteractive).async {
                 thumbnailDict[self.videos[indexPath.item]] = self.generateThumbnail(path: self.videos[indexPath.item])
             }
         }

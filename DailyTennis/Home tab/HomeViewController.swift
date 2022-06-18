@@ -205,12 +205,14 @@ class HomeViewController: UICollectionViewController {
         
         
         DispatchQueue.global(qos: .userInteractive).async {
+//        queue.async(group: group) {
             for video in self.videos {
                 if thumbnailDict[video] == nil {
                     thumbnailDict[video] = self.generateThumbnail(path: video)
                 }
             }
         }
+//        }
         var leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes))
         leftSwipe.direction = .left
 
