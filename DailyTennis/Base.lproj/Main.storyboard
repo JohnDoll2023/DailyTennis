@@ -12,7 +12,7 @@
         <!--Video View Controller-->
         <scene sceneID="Tf8-wk-XBR">
             <objects>
-                <collectionViewController id="DSJ-YY-hJ4" customClass="VideoViewController" customModule="DailyTennis" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="VideoViewController" id="DSJ-YY-hJ4" customClass="VideoViewController" customModule="DailyTennis" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Iql-gU-yW1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -211,6 +211,24 @@ class HomeViewController: UICollectionViewController {
                 }
             }
         }
+        var leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes))
+        leftSwipe.direction = .left
+
+
+        view.addGestureRecognizer(leftSwipe)
+    }
+    
+    @objc func handleSwipes(sender:UISwipeGestureRecognizer) {
+//        if (sender.direction == .left) {
+//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//            let vc = storyboard.instantiateViewController(withIdentifier: "VideoViewController") as! UICollectionViewController
+//            self.present(vc, animated: false, completion: nil)
+//        }
+//
+//        if (sender.direction == .right) {
+
+//        }
+        self.tabBarController?.selectedIndex += 1
     }
     
     // user agreement alert

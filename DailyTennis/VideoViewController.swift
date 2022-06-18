@@ -239,9 +239,26 @@ class VideoViewController: UICollectionViewController {
 //                }
 //            }
 //        }
+        var rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes))
+        rightSwipe.direction = .right
+
+
+        view.addGestureRecognizer(rightSwipe)
+        
+        
+    }
     
-        
-        
+    @objc func handleSwipes(sender:UISwipeGestureRecognizer) {
+//        if (sender.direction == .left) {
+//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//            let vc = storyboard.instantiateViewController(withIdentifier: "VideoViewController") as! UICollectionViewController
+//            self.present(vc, animated: false, completion: nil)
+//        }
+//
+//        if (sender.direction == .right) {
+
+//        }
+        self.tabBarController?.selectedIndex -= 1
     }
     
 //    func thumbnailGenerator() {
