@@ -11,6 +11,9 @@ import AVKit
 var thumbnailDict = [String:UIImage]()
 let defaults = UserDefaults.standard
 
+// holds favorited videos
+var favorites: Set<String> = []
+
 class VideoViewController: UICollectionViewController {
     
 //    let videoURL = "https://dailytennis.s3.us-east-2.amazonaws.com/1-21-18.mov"
@@ -208,14 +211,14 @@ class VideoViewController: UICollectionViewController {
         "mechanicssuck.MOV",
     ]
     
-    var userFavorites: [String] {
-        get {
-            return UserDefaults.standard.array(forKey: "userFavorites") as? [String] ?? []
-        }
-        set {
-            UserDefaults.standard.set(newValue, forKey: "userFavorites")
-        }
-    }
+//    var userFavorites: [String] {
+//        get {
+//            return UserDefaults.standard.array(forKey: "userFavorites") as? [String] ?? []
+//        }
+//        set {
+//            UserDefaults.standard.set(newValue, forKey: "userFavorites")
+//        }
+//    }
     
 //    let thumbnailCache = NSCache<NSURL, UIImage>()
 //    var thumbnailDict = [String:UIImage]()
@@ -242,10 +245,11 @@ class VideoViewController: UICollectionViewController {
         var rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes))
         rightSwipe.direction = .right
 
-
+        if (UserDefaults.standard.object(forKey: "favorites") != nil) {
+            favorites = try! JSONDecoder().decode(Set<String>.self, from: UserDefaults.standard.object(forKey: "favorites") as! Data)
+        }
+        
         view.addGestureRecognizer(rightSwipe)
-        
-        
     }
     
     @objc func handleSwipes(sender:UISwipeGestureRecognizer) {
@@ -339,6 +343,15 @@ class VideoViewController: UICollectionViewController {
             titleString = "\(monthstr) \(day), 20\(year)"
         }
         cell.name.text = titleString
+        
+        cell.id = videos[indexPath.item]
+        
+        if (favorites.contains(cell.id)){
+            cell.favorite.setImage(UIImage(systemName: "star.fill"), for: .normal)
+        } else {
+            cell.favorite.setImage(UIImage(systemName: "star"), for: .normal)
+        }
+        
         return cell
     }
     

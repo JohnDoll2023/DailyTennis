@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RGq-aA-QzY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RGq-aA-QzY">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -33,12 +34,6 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="720"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="January 5, 2019" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W1Y-CP-PgO">
-                                            <rect key="frame" x="107.5" y="661.5" width="145.5" height="27"/>
-                                            <fontDescription key="fontDescription" name="NotoSansKannada-Regular" family="Noto Sans Kannada" pointSize="20"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dt 2 copy" translatesAutoresizingMaskIntoConstraints="NO" id="qwQ-jY-hNa">
                                             <rect key="frame" x="10" y="10" width="355" height="631.5"/>
                                             <constraints>
@@ -47,31 +42,37 @@
                                             </constraints>
                                         </imageView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vZC-zS-ioG">
-                                            <rect key="frame" x="311" y="657" width="45" height="31"/>
+                                            <rect key="frame" x="301" y="654" width="48" height="34"/>
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="plain" image="square.and.arrow.up" catalog="system"/>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bOl-go-BY3">
-                                            <rect key="frame" x="26" y="657" width="47" height="31"/>
+                                            <rect key="frame" x="22" y="654" width="52" height="34"/>
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="plain" image="star" catalog="system"/>
                                             <connections>
                                                 <action selector="tapped:" destination="6yZ-eZ-b8q" eventType="touchUpInside" id="x2f-Zy-m5R"/>
                                             </connections>
                                         </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="January 5, 2019" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W1Y-CP-PgO">
+                                            <rect key="frame" x="119" y="661.5" width="145.5" height="27"/>
+                                            <fontDescription key="fontDescription" name="NotoSansKannada-Regular" family="Noto Sans Kannada" pointSize="20"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="vZC-zS-ioG" secondAttribute="trailing" constant="19" id="6Ep-iB-cs3"/>
-                                        <constraint firstItem="bOl-go-BY3" firstAttribute="leading" secondItem="LkZ-Bt-nIL" secondAttribute="leading" constant="26" id="C7N-VN-ek3"/>
+                                        <constraint firstAttribute="trailing" secondItem="vZC-zS-ioG" secondAttribute="trailing" constant="26" id="1SA-8a-c66"/>
+                                        <constraint firstItem="W1Y-CP-PgO" firstAttribute="leading" secondItem="bOl-go-BY3" secondAttribute="trailing" constant="45" id="CVi-Gs-r2u"/>
+                                        <constraint firstAttribute="bottom" secondItem="bOl-go-BY3" secondAttribute="bottom" constant="32" id="FMR-FB-Oq1"/>
                                         <constraint firstItem="W1Y-CP-PgO" firstAttribute="top" secondItem="qwQ-jY-hNa" secondAttribute="bottom" constant="20" id="IHK-24-gqH"/>
-                                        <constraint firstAttribute="bottom" secondItem="bOl-go-BY3" secondAttribute="bottom" constant="32" id="JxJ-M7-LvS"/>
                                         <constraint firstItem="qwQ-jY-hNa" firstAttribute="top" secondItem="LkZ-Bt-nIL" secondAttribute="top" constant="10" id="MUb-jb-XK6"/>
-                                        <constraint firstAttribute="bottom" secondItem="vZC-zS-ioG" secondAttribute="bottom" constant="32" id="SYz-en-Tza"/>
-                                        <constraint firstItem="W1Y-CP-PgO" firstAttribute="leading" secondItem="LkZ-Bt-nIL" secondAttribute="leading" constant="107.5" id="Te2-cI-UQD"/>
                                         <constraint firstAttribute="trailing" secondItem="qwQ-jY-hNa" secondAttribute="trailing" constant="10" id="XCA-oh-3dA"/>
                                         <constraint firstAttribute="bottom" secondItem="W1Y-CP-PgO" secondAttribute="bottom" constant="31.5" id="fbF-bi-5fn"/>
                                         <constraint firstItem="qwQ-jY-hNa" firstAttribute="leading" secondItem="LkZ-Bt-nIL" secondAttribute="leading" constant="10" id="haw-8r-gyv"/>
-                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="W1Y-CP-PgO" secondAttribute="trailing" constant="10" id="kbj-yg-9mS"/>
+                                        <constraint firstAttribute="bottom" secondItem="vZC-zS-ioG" secondAttribute="bottom" constant="32" id="sd4-65-DiF"/>
+                                        <constraint firstItem="vZC-zS-ioG" firstAttribute="leading" secondItem="W1Y-CP-PgO" secondAttribute="trailing" constant="36.5" id="uxa-tu-w2v"/>
+                                        <constraint firstItem="bOl-go-BY3" firstAttribute="leading" secondItem="LkZ-Bt-nIL" secondAttribute="leading" constant="22" id="v6J-GW-eW4"/>
                                     </constraints>
                                 </collectionViewCellContentView>
                                 <size key="customSize" width="375" height="720"/>
@@ -228,7 +229,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pencil.and.outline" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="8xn-iq-QdK">
-                                            <rect key="frame" x="10" y="9" width="170" height="144"/>
+                                            <rect key="frame" x="10" y="9.6666666666666714" width="170" height="143.66666666666669"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="170" id="Len-uw-STD"/>
                                                 <constraint firstAttribute="height" constant="143.5" id="wbD-4f-63g"/>
@@ -383,7 +384,7 @@
                     <tabBarItem key="tabBarItem" title="Home" image="house" catalog="system" selectedImage="house" id="wro-Wr-FCO"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="2vk-7f-OVX">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -402,7 +403,7 @@
                     <tabBarItem key="tabBarItem" title="Videos" image="film" catalog="system" selectedImage="film" id="IZr-Mj-wfv"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="cAu-SL-63b">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -420,7 +421,7 @@
         <image name="IMG_7016 2" width="3024" height="3024"/>
         <image name="dt 2 copy" width="350" height="351"/>
         <image name="film" catalog="system" width="128" height="93"/>
-        <image name="house" catalog="system" width="128" height="106"/>
+        <image name="house" catalog="system" width="128" height="104"/>
         <image name="pencil.and.outline" catalog="system" width="128" height="128"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <image name="star" catalog="system" width="128" height="116"/>
