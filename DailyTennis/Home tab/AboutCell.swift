@@ -10,4 +10,6 @@ import UIKit
 class AboutCell: UICollectionViewCell {
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var name: UILabel!
+    
+    
 }

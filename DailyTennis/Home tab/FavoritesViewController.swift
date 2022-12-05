@@ -23,6 +23,7 @@ class FavoritesViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("x")
         
 //        let html = """
 //        <html>
@@ -51,7 +52,7 @@ class FavoritesViewController: UICollectionViewController {
 
     // creates cells in main nav controller view with thumbnail and date
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FavoritesCell", for: indexPath) as? FavoritesVideoCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FavoritesCell", for: indexPath) as? FavoritesCell else {
             fatalError("Unable to dequeue FavoritesVideoCell.")
         }
 //        cell.imageView.image = UIImage(named: pictures[indexPath.item])

@@ -6,33 +6,75 @@
 //
 
 import UIKit
-import WebKit
 
 class AboutViewController: UIViewController {
-    var webView: WKWebView!
     
-    override func loadView() {
-        webView = WKWebView()
-        view = webView
+    struct Creator {
+        var name: String
+        var description: String
+    }
+    
+    var creators = [
+        Creator(name: "John Doll", description: "You won't find John in many of the videos. John was the camera man for Daily Tennis and preferred to be the one recording rather than the one being recorded. All of the videos were posted to his Snapchat story from beginning to end. Even when John couldn't be there for the filming, he'd share his login with the other guys to make sure that no days were missed."),
+        Creator(name: "Austin Hancock", description: "Austin appeared in more Daily Tennis videos than any other cast member. Often willing to do more of the ridiculous stunts and destroy his racquets, he made a name for himself. When Daily Tennis needed someone to come film at any odd hour, Austin was always there."),
+        Creator(name: "Curtis Hughes", description: "Curtis is another one of the founding fathers of Daily Tennis. Curtis was regularly the hype man or loud character in the scenes, not afraid to show his emotions for the video. It wouldn't have been Daily Tennis without Curtis."),
+        Creator(name: "Jeffrey Adkins", description: "Jeffrey might not have been at the original Daily Tennis videos, but became one of the most reliant members of the crew. He helped to make some of our more special Daily Tennis's, like the split story filmed from Virginia and Ohio.")
+    ]
+    
+    @IBOutlet weak var personNameOutlet: UISegmentedControl!
+    @IBOutlet weak var personImage: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    
+    @IBAction func nameController(_ sender: UISegmentedControl) {
+        switch personNameOutlet.selectedSegmentIndex {
+            case 0:
+                personImage.image = UIImage(named: creators[0].name)
+                nameLabel.text = creators[0].name
+                descriptionLabel.text = creators[0].description
+            case 1:
+                personImage.image = UIImage(named: creators[1].name)
+                nameLabel.text = creators[1].name
+                descriptionLabel.text = creators[1].description
+            case 2:
+                personImage.image = UIImage(named: creators[2].name)
+                nameLabel.text = creators[2].name
+                descriptionLabel.text = creators[2].description
+            case 3:
+                personImage.image = UIImage(named: creators[3].name)
+                nameLabel.text = creators[3].name
+                descriptionLabel.text = creators[3].description
+            default:
+                personImage.image = UIImage(named: creators[0].name)
+                nameLabel.text = creators[0].name
+                descriptionLabel.text = creators[0].description
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let html = """
-        <html>
-        <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <style> body { font-size: 150%; font-family: Kohinoor Gujarati} </style>
-        </head>
-        <body>
-        <strong>
-        My friends and I started this whole trend as a way to keep ourselves accountable and paly tennis everyday leading up to our next season. Austin, the guy featured in the first video, is in nearly every single Daily Tennis often accompanied by co-stars Curtis and Jeffrey. Several other people would make appearences from our team or from our school, or other schools... I, John, was the videographer for nearly every Daily Tennis. I didn't quite save all of them in the beginning of the show because we didn't expect much from it. But now, 5 years later, I am nearly finished with computer science degree from Miami University. Instead of having to search for and find these in my Snapchat memories whenever I think about it or someone requests one, they'll all be available here. I plan to implement several features to make finding your favorites or the favorites of others easier as the app continues to develop. I want the videos to be able to be shared easily, just as they were when we originally filmed them.
-        </strong>
-        </body>
-        </html>
-        """
-
-        webView.loadHTMLString(html, baseURL: nil)
+        personImage.layer.cornerRadius = 20
+        switch personNameOutlet.selectedSegmentIndex {
+            case 0:
+                personImage.image = UIImage(named: creators[0].name)
+                nameLabel.text = creators[0].name
+                descriptionLabel.text = creators[0].description
+            case 1:
+                personImage.image = UIImage(named: creators[1].name)
+                nameLabel.text = creators[1].name
+                descriptionLabel.text = creators[1].description
+            case 2:
+                personImage.image = UIImage(named: creators[2].name)
+                nameLabel.text = creators[2].name
+                descriptionLabel.text = creators[2].description
+            case 3:
+                personImage.image = UIImage(named: creators[3].name)
+                nameLabel.text = creators[3].name
+                descriptionLabel.text = creators[3].description
+            default:
+                personImage.image = UIImage(named: creators[0].name)
+                nameLabel.text = creators[0].name
+                descriptionLabel.text = creators[0].description
+        }
     }
 }

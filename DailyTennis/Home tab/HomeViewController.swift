@@ -261,7 +261,7 @@ class HomeViewController: UICollectionViewController {
 
     // sets number of tabs on home screen
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return 4
     }
 
     // sets each individual set
@@ -283,6 +283,7 @@ class HomeViewController: UICollectionViewController {
             }
             cell.imageView.layer.borderColor = UIColor(white: 0, alpha: 0.3).cgColor
             cell.imageView.layer.cornerRadius = 20
+            
             return cell
             
             // featured cell in lower left (might be mid center in future)
@@ -293,6 +294,7 @@ class HomeViewController: UICollectionViewController {
             cell.imageView.layer.borderColor = UIColor(white: 0, alpha: 0.3).cgColor
             cell.imageView.layer.cornerRadius = 20
             cell.imageView.image = generateThumbnail(path: featured)
+            
             return cell
             
             // favorites cell in lower right (might be bottom mid in future)
@@ -302,9 +304,9 @@ class HomeViewController: UICollectionViewController {
             }
             cell.imageView.layer.borderColor = UIColor(white: 0, alpha: 0.3).cgColor
             cell.imageView.layer.cornerRadius = 20
-            cell.imageView.image = generateThumbnail(path: favorite)
-            cell.layer.borderColor = UIColor(white: 0, alpha: 0.3).cgColor
-            cell.layer.borderWidth = 2
+            cell.imageView.image = generateThumbnail(path: favorites.randomElement() ?? "6-17-17.mp4")
+//            cell.layer.borderColor = UIColor(white: 0, alpha: 0.3).cgColor
+//            cell.layer.borderWidth = 2
             return cell
         }
     }
@@ -313,8 +315,9 @@ class HomeViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch (indexPath.item) {
             case 0:
+                
                 let vc = AboutViewController()
-                navigationController?.pushViewController(vc, animated: true)
+//                navigationController?.pushViewController(vc, animated: true)
             case 1:
                 let vc = HistoryViewController()
                 navigationController?.pushViewController(vc, animated: true)
@@ -322,11 +325,18 @@ class HomeViewController: UICollectionViewController {
                 let vc = DetailViewController()
                 vc.selectedVideo = featured
                 navigationController?.pushViewController(vc, animated: true)
+            case 3:
+//                if let vc = storyboard?.instantiateViewController(withIdentifier: "Favorites") as? FavoritesViewController {
+//                    print("here12")
+//                    navigationController?.pushViewController(vc, animated: true)
+//                }
+                let vc = FavoritesViewController()
+                print("wgd")
+                navigationController?.pushViewController(vc, animated: true)
             default:
-                if let vc = storyboard?.instantiateViewController(withIdentifier: "Favorites") as? FavoritesViewController {
-                    print("here12")
-                    navigationController?.pushViewController(vc, animated: true)
-                }
+                
+                let vc = AboutViewController()
+                navigationController?.pushViewController(vc, animated: true)
         }
         
     }
